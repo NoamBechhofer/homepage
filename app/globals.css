@@ -1,26 +1,42 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+    color-scheme: light dark;
+    --color-background-light: #ffffff;
+    --color-dimmed-light: #f3f4f5;
+    --color-primary-light: #191e23;
+    --color-secondary-light: #6c7781;
+    --color-accent-light: #0073aa;
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    --color-background-dark: #191e23;
+    --color-dimmed-dark: #23282d;
+    --color-primary-dark: #fbfbfc;
+    --color-secondary-dark: #ccd0d4;
+    --color-accent-dark: #00a0d2;
+
+    --color-background: var(--color-background-light);
+    --color-dimmed: var(--color-dimmed-light);
+    --color-primary: var(--color-primary-light);
+    --color-secondary: var(--color-secondary-light);
+    --color-accent: var(--color-accent-light);
+
+    --scale-ratio: 1.25;
+    --scale0: 1rem;
+    --scale1: calc(var(--scale0) * var(--scale-ratio));
+    --scale2: calc(var(--scale1) * var(--scale-ratio));
+    --scale3: calc(var(--scale2) * var(--scale-ratio));
+    --scale4: calc(var(--scale3) * var(--scale-ratio));
+    --scale5: calc(var(--scale4) * var(--scale-ratio));
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background: var(--color-background-dark);
+      --color-dimmed: var(--color-dimmed-dark);
+      --color-primary: var(--color-primary-dark);
+      --color-secondary: var(--color-secondary-dark);
+      --color-accent: var(--color-accent-dark);
+    }
+  }
 }
