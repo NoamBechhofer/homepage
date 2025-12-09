@@ -1,8 +1,8 @@
 import { Metadata } from "next";
-import Resume from "./Resume";
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return <Resume />;
+  redirect("/resume");
 }
 
 export const metadata: Metadata = {

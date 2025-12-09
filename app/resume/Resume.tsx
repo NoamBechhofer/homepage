@@ -60,9 +60,7 @@ const Education = () => (
               <h4 className="text-2xl">
                 <Link href={school.schoolUrl}>{school.school}</Link>
               </h4>
-              <div className="text-(--color-secondary)">
-                {school.concentration}
-              </div>
+              <div>{school.concentration}</div>
               <strong>{school.degree}</strong>
               <div>
                 <time dateTime={school.matriculation}>
@@ -89,16 +87,16 @@ const Education = () => (
             <h5 className="text-xl">Courses</h5>
             <dl>
               {school.courses.map((course) => {
-                const courseInfo = (
+                const courseTitle = course.link ? (
+                  <Link href={course.link}>{course.title}</Link>
+                ) : (
+                  course.title
+                );
+                const liContent = (
                   <>
-                    <dt className="font-bold">{course.title}</dt>
+                    <dt className="font-bold">{courseTitle}</dt>
                     <dd>{course.description}</dd>
                   </>
-                );
-                const liContent = course.link ? (
-                  <Link href={course.link}>{courseInfo}</Link>
-                ) : (
-                  courseInfo
                 );
                 return (
                   <div key={`${school.school}-${course.title}`}>
@@ -115,7 +113,7 @@ const Education = () => (
 );
 
 const Header = () => (
-  <header className="bg-(--color-dimmed) flex flex-col text-base leading-normal font-sans gap-8 mb-16 text-center items-center p-5 rounded-lg">
+  <header className=" flex flex-col text-base leading-normal font-sans gap-8 mb-16 text-center items-center p-5 rounded-lg">
     <div className="w-60 h-70 rounded-full overflow-hidden border-white border-4">
       <Image
         src="/profile.png"
@@ -165,7 +163,7 @@ const Skills = () => (
           <ul className="flex flex-wrap content-start gap-2 list-none p-0">
             {skillCategory.skills.map((skill) => (
               <li
-                className="bg-(--color-dimmed) rounded-sm px-2 py-1"
+                className=" rounded-sm px-2 py-1"
                 key={`${skillCategory.name}-${skill}`}
               >
                 {skill}
@@ -191,9 +189,7 @@ const Work = () => (
             <h4 className="text-2xl">
               <Link href={position.companyUrl}>{position.company}</Link>
             </h4>
-            <div className="text-(--color-secondary)">
-              {position.companyIndustry}
-            </div>
+            <div>{position.companyIndustry}</div>
           </header>
           <div className="m-2">
             <h5 className="text-xl">{position.title}</h5>
