@@ -1,3 +1,5 @@
+import { link } from "fs";
+
 export const contactAndSocialsWithIconNames: {
   icon: string;
   label: string;
@@ -148,14 +150,17 @@ const columbiaUndergrad = {
     {
       title: "Fundamentals of Computer Systems",
       description: "Circuit/Processor Design, Assembly Programming",
+      link: "https://www.cs.columbia.edu/education/courses/course/CSEEW3827-001/31223/",
     },
     {
       title: "Advanced Programming",
       description: "C, Systems Programming, TCP/IP, HTTP",
+      link: "https://cs3157.github.io/www/2022-9/",
     },
     {
       title: "Operating Systems",
       description: "Extensive Team-based Linux Kernel hacking",
+      link: "http://www.cs.columbia.edu/~nieh/teaching/w4118/",
     },
     {
       title: "Design Using C++",
@@ -169,6 +174,7 @@ const columbiaUndergrad = {
     {
       title: "Databases",
       description: "PostgreSQL, Best Practices",
+      link: "https://www.cs.columbia.edu/~kar/4111s24/",
     },
     {
       title: "Security I",
@@ -189,10 +195,12 @@ const aucklandStudyAbroad = {
     {
       title: "Object Oriented Software Development",
       description: "UML Modelling, SOLID, Design Patterns",
+      link: "https://courseoutline.auckland.ac.nz/dco/course/COMPSCI/230/1233",
     },
     {
       title: "Mathematical Foundations of Computer Science",
       description: "Automata, Computability, Complexity",
+      link: "https://courseoutline.auckland.ac.nz/dco/course/COMPSCI/350/1233",
     },
   ],
   degree: "Study Abroad",
