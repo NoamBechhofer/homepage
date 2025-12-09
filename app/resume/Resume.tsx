@@ -50,8 +50,8 @@ function renderListItem(item: ListItem, level = 0): React.ReactNode {
 }
 
 const Education = () => (
-  <section className="flex flex-row m-5 gap-5">
-    <h3 className="text-3xl flex-1">Education</h3>
+  <section className="m-5 flex flex-row gap-5">
+    <h3 className="flex-1 text-3xl">Education</h3>
     <div className={`flex flex-row flex-wrap gap-5 flex-${schools.length}`}>
       {schools.map((school) => {
         return (
@@ -113,15 +113,15 @@ const Education = () => (
 );
 
 const Header = () => (
-  <header className=" flex flex-col text-base leading-normal font-sans gap-8 mb-16 text-center items-center p-5 rounded-lg">
-    <div className="w-60 h-70 rounded-full overflow-hidden border-white border-4">
+  <header className="mb-16 flex flex-col items-center gap-8 rounded-lg p-5 text-center font-sans text-base leading-normal">
+    <div className="h-70 w-60 overflow-hidden rounded-full border-4 border-white">
       <Image
         src="/profile.png"
         alt="Noam Bechhofer profile picture"
         width={685}
         height={914}
         priority
-        className="w-full h-full object-cover"
+        className="h-full w-full object-cover"
       />
     </div>
     <div>
@@ -135,7 +135,7 @@ const Header = () => (
         interesting position where I can grow and learn.
       </p>
     </article>
-    <ul className="flex flex-wrap gap-y-1.5 gap-x-4 justify-center list-none p-0">
+    <ul className="flex list-none flex-wrap justify-center gap-x-4 gap-y-1.5 p-0">
       {contactAndSocialsWithIconNames.map(({ icon, label, href }) => {
         const contactOrSocialWithIcon = (
           <>
@@ -154,16 +154,16 @@ const Header = () => (
 );
 
 const Skills = () => (
-  <section className="flex flex-row m-5 gap-5">
-    <h3 className="text-3xl flex-1">Skills</h3>
+  <section className="m-5 flex flex-row gap-5">
+    <h3 className="flex-1 text-3xl">Skills</h3>
     <div className={`flex flex-row flex-wrap gap-5 flex-${skills.length}`}>
       {skills.map((skillCategory) => (
-        <div key={skillCategory.name} className="flex-1 flex flex-col gap-2">
+        <div key={skillCategory.name} className="flex flex-1 flex-col gap-2">
           <h4 className="text-2xl">{skillCategory.name}</h4>
-          <ul className="flex flex-wrap content-start gap-2 list-none p-0">
+          <ul className="flex list-none flex-wrap content-start gap-2 p-0">
             {skillCategory.skills.map((skill) => (
               <li
-                className=" rounded-sm px-2 py-1"
+                className="rounded-sm px-2 py-1"
                 key={`${skillCategory.name}-${skill}`}
               >
                 {skill}
@@ -177,8 +177,8 @@ const Skills = () => (
 );
 
 const Work = () => (
-  <section className="flex flex-row m-5 gap-5">
-    <h3 className="text-3xl flex-1">Work</h3>
+  <section className="m-5 flex flex-row gap-5">
+    <h3 className="flex-1 text-3xl">Work</h3>
     <div className={`flex flex-row flex-wrap gap-5 flex-${positions.length}`}>
       {positions.map((position) => (
         <article
