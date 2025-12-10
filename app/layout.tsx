@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} p-2 antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} m-0 flex min-h-screen flex-col p-2 antialiased`}
       >
         <ThemeProvider
           attribute="class"
@@ -39,11 +39,20 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NavBar />
-          {children}
-          <Footer />
+          <header>
+            <NavBar />
+          </header>
+          <main>{children}</main>
+          <Spacer />
+          <footer>
+            <Footer />
+          </footer>
         </ThemeProvider>
       </body>
     </html>
   );
+}
+
+function Spacer() {
+  return <div className="flex-1" />;
 }
