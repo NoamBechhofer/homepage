@@ -1,29 +1,40 @@
-import { link } from "fs";
+export const personalDetails = {
+  firstName: "Noam",
+  lastName: "Bechhofer",
+  pronouns: "He/Him",
+  profession: "Software Developer",
+  summary:
+    "Web developer with a passion for software. Quick learner and great debugger. I am looking for an interesting position where I can grow and learn.",
+};
 
-export const contactAndSocialsWithIconNames: {
-  icon: string;
-  label: string;
-  href?: string;
-}[] = [
-  { icon: "map-pin", label: "New York, United States" },
-  {
-    icon: "mail",
-    label: "noam.bechhofer@gmail.com",
-    href: "mailto:noam.bechhofer@gmail.com",
+export const contact = {
+  address: {
+    address1: "621 Park Pl",
+    address2: "Apt 3",
+    city: "Brooklyn",
+    state: "NY",
+    zip: "11238",
+    country: "US",
+    icon: "map-pin",
   },
-  { icon: "phone", label: "(845) 263-4510", href: "tel:(845)263-4510" },
-  {
-    icon: "linkedin",
-    label: "noam-bechhofer",
+  email: { address: "noam.bechhofer@gmail.com", icon: "mail" },
+  phone: { number: "+18452634510", icon: "phone" },
+};
+export const socials = {
+  LinkedIn: {
+    username: "noam-bechhofer",
     href: "https://www.linkedin.com/in/noam-bechhofer/",
+    icon: "linkedin",
   },
-  {
-    icon: "github",
-    label: "noambechhofer",
+  GitHub: {
+    username: "NoamBechhofer",
     href: "https://www.github.com/NoamBechhofer",
+    icon: "github",
   },
-];
-export type ListItem = string | [string, ListItem[]];
+};
+
+export const languages = { English: "Native", Hebrew: "Fluent" };
+
 type Position = {
   title: string;
   company: string;
@@ -33,7 +44,7 @@ type Position = {
   startDate: string;
   endDate?: string;
   description: string;
-  bullets: ListItem[];
+  bullets: string[];
 };
 const rossEnergy: Position = {
   company: "Ross Energy Consulting, LLC",
@@ -48,17 +59,7 @@ const rossEnergy: Position = {
     "Typescript and Next.js for full stack development",
     "Postgres with Prisma ORM for database management",
     "Javascript for dynamic report templating",
-    [
-      "Numerous API integrations including:",
-      [
-        "Airtable",
-        "Asana",
-        "Energy Star Portfolio Manager",
-        "Fastfield Forms",
-        "Google Drive",
-        "Google Sheets",
-      ],
-    ],
+    "Numerous API integrations including Airtable, Asana, Energy Star Portfolio Manager, Fastfield Forms, Google Drive, and Google Sheets",
   ],
 };
 const columbiaTA: Position = {
@@ -125,6 +126,7 @@ type Course = {
 type Education = {
   courses: Course[];
   degree: string;
+  gpa?: string;
   graduation?: string;
   matriculation: string;
   concentration: string;
@@ -204,6 +206,7 @@ const aucklandStudyAbroad = {
     },
   ],
   degree: "Study Abroad",
+  gpa: "3.6/4.0",
   graduation: "2023-06-01",
   matriculation: "2023-02-01",
   concentration: "Computer Science",
@@ -212,57 +215,60 @@ const aucklandStudyAbroad = {
 };
 export const schools: Education[] = [columbiaUndergrad, aucklandStudyAbroad];
 type Skill = string;
-type SkillCategory = {
-  name: string;
-  skills: Skill[];
-};
-const webDev: SkillCategory = {
-  name: "Web Development",
-  skills: [
-    "HTML",
-    "CSS",
-    "Javascript",
-    "Typescript",
-    "React",
-    "Next.js",
-    "Svelte",
-    "Express",
-    "PostgreSQL",
-    "MongoDB",
+type SkillCategory = string;
+export const skillsToCategories: { [skill: Skill]: SkillCategory[] } = {
+  "stack trace": ["Debugging"],
+  profilers: ["Debugging"],
+  printf: ["Debugging"],
+  debuggers: ["Debugging"],
+  "Technical Documentation": ["Documentation"],
+  Markdown: ["Documentation"],
+  JSDoc: ["Documentation"],
+  Javadoc: ["Documentation"],
+  Doxygen: ["Documentation"],
+  docstrings: ["Documentation"],
+  "Tailwind CSS": ["Web Development", "Frontend"],
+  Svelte: ["Web Development", "Frontend"],
+  React: ["Web Development", "Frontend"],
+  HTML: ["Web Development", "Frontend"],
+  CSS: ["Web Development", "Frontend"],
+  "Next.js": ["Web Development", "Frontend", "Backend"],
+  TypeScript: [
+    "Web Development",
+    "Frontend",
+    "Backend",
+    "Programming Languages",
   ],
-};
-const systemsProgramming: SkillCategory = {
-  name: "Systems Programming",
-  skills: ["C", "Linux", "Kernel Hacking"],
-};
-const programming: SkillCategory = {
-  name: "Programming Languages",
-  skills: ["Java", "C", "C++", "Python", "Javascript", "Typescript", "Rust"],
-};
-const versionControl: SkillCategory = {
-  name: "Version Control",
-  skills: ["git", "GitHub", "merge", "rebase", "cherry-pick", "pull request"],
-};
-const codeDocumentation: SkillCategory = {
-  name: "Code Documentation",
-  skills: [
-    "docstrings",
-    "Doxygen",
-    "Javadoc",
-    "JSDoc",
-    "Markdown",
-    "Technical Documentation",
+  JavaScript: [
+    "Web Development",
+    "Frontend",
+    "Backend",
+    "Programming Languages",
   ],
+  PostgreSQL: ["Web Development", "Backend"],
+  "Node.js": ["Web Development", "Backend"],
+  MongoDB: ["Web Development", "Backend"],
+  "Express.js": ["Web Development", "Backend"],
+  "C++": ["Systems Programming", "Programming Languages"],
+  C: ["Systems Programming", "Programming Languages"],
+  Linux: ["Systems Programming", "Operating Systems"],
+  "Kernel Development": ["Systems Programming", "Operating Systems"],
+  Java: ["Programming Languages"],
+  Rust: ["Programming Languages", "Systems Programming"],
+  Python: ["Programming Languages", "Scripting"],
+  rebase: ["Version Control"],
+  "pull request": ["Version Control"],
+  merge: ["Version Control"],
+  GitHub: ["Version Control"],
+  Git: ["Version Control"],
+  "cherry-pick": ["Version Control"],
 };
-const debugging: SkillCategory = {
-  name: "Debugging",
-  skills: ["printf", "stack trace", "debuggers", "profilers"],
-};
-export const skills: SkillCategory[] = [
-  codeDocumentation,
-  debugging,
-  programming,
-  systemsProgramming,
-  versionControl,
-  webDev,
-];
+export const skills = Object.entries(skillsToCategories).reduce<{
+  [category: SkillCategory]: Skill[];
+}>((acc, [skill, categories]) => {
+  categories.forEach((category) => {
+    if (!acc[category]) acc[category] = [];
+    acc[category].push(skill);
+  });
+  return acc;
+}, {});
